@@ -1,0 +1,92 @@
+info:
+  title: Expresso 10 min grocery Delivering App
+  description: API documentation for a Expresso application with google auth
+  version: 1.0.0
+
+paths:
+  /auth/google:
+    get:
+      summary: Initiates Google OAuth login process
+  /auth/google/callback:
+    get:
+      summary: Handles Google OAuth callback and logs the user in
+  /users/logout:
+    post:
+      summary: Logs the user out by invalidating the token or session
+  /users/profile:
+    get:
+      summary: retrives the logged-in user's profile information
+
+  /products:
+    get:
+      summary: Retrives a list of all products
+    post:
+      summary: Creates a new product (admin only)
+  /products/{id}:
+    get:
+      summary: Retrives details of a specific product by ID
+    post:
+      summary: Updates an existing product by ID (admin only)
+
+  /products/{id}/delete:
+    post:
+      summary: Deletes a product by ID (admin only)
+  /products/search:
+    get:
+      summary: Allows users to search for products by name, cateogry, or either criteria
+  /products/review:
+    post:
+      summary: Allows users to leave a review for product they've purchased
+  /products/{id}/reviews:
+    get:
+      summary: Retrives all reviews for a specific product
+
+  /cart:
+    get:
+      summary: Retrives the user's cart
+    post:
+      summary: Adds a product to the user's cart
+  /cart/remove:
+    post:
+      summary: Removes a product from the user's cart
+
+  /order:
+    post:
+      summary: Creates a new order
+  /orders:
+    get:
+      summary: Retrives a list of the user's order
+  /order/{id}/cancel:
+    post:
+      summary: Allows users to cancel an order before it's processed
+  /order/{id}/return:
+    post:
+      summary: Allows users to initiate a return for an order they have received
+  /order/{id/invoice}:
+    get:
+      summary: Generates and retrives the invoice for a specific order
+
+  /payment:
+    post:
+      summary: Processes a payment for an order
+
+  /delivery/{orderId}:
+    get:
+      summary: Retrives the delivery status of an order
+
+  /wishlist:
+    get:
+      summary: Retrives all products in the user's wishlist
+  /wishlist/add:
+    post:
+      summary: Adds a product to the user's widhlist
+  /wishlist/remove:
+    post:
+      summary: Removes a product from the user's wishlist
+
+  /admin/dashboard:
+    get:
+      summary: Provides an overview of key metrics (e.g, total sales, number of orders) for the admin
+  /admin/orders:
+    get:
+      summary: Allows the admin to view all orders (for monitoring or processing)
